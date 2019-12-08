@@ -240,6 +240,45 @@ function DeleteDeck($deckID){
 	$deck->execute();
 }
 
+function RandomDeck(){
+        
+        global $db;
+        
+        $loopCheck=false;
+        
+        $query = 'SELECT * FROM decks WHERE Public = 1';
+
+        $pubDecksquery = $db->prepare($query);
+        
+        $pubDecksquery->execute();
+        
+        $pubDecks = $pubDecksquery->fetchall();
+        
+        $deckCount = count($pubDecks);
+        
+        if($deckCount > 0){
+            
+            $pubDecksArr = array();
+
+            foreach($pubDecks as $pubDeck){
+                $pubDecksArr[] = $pubDeck['DeckID'];
+            }
+            
+            $randomID = rand(0, $deckCount - 1);
+            
+            //return $pubDecksArr[$randomID];
+            
+            $randomDeck = $pubDecksArr[$randomID];
+            
+        }
+        if(isset($randomDeck)){
+            $redirect = "../views/flashcardsQuiz.php?DeckID=" . $randomDeck;
+        }else{
+            $redirect = "../views/myDecks";
+        }
+        return $redirect;
+    }
+
 ///////// User Functions //////
 
 function DeleteUser($UserID){
