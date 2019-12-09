@@ -32,7 +32,7 @@
 				<a href="../views/continueLearning.php" class="primary-btn">Continue Learning</a>
 	            <a href="../controllers/addDeck.php" class="primary-btn">Create a New Deck</a>
 	            <a href="../views/mydecks.php" class="primary-btn">My Decks</a>
-	            <a href="/controllers/random.php" class="primary-btn">Random Flashcard</a>
+	            <a href="../controllers/random.php" class="primary-btn">Random Deck</a>
 			</div>
 		</div>
 	</div>
