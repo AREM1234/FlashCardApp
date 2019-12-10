@@ -2,7 +2,7 @@
     session_start();
     include('views/heading2.php');
 ?>
-<div class="container-fluid container-img">
+<div class="container-fluid ">
     <div class="row text-center">
         <div class="col-12 my-5">
             <img src="images/alfred-state-a.png" class="img-fluid alfred-logo" alt="Alfred State Logo">
