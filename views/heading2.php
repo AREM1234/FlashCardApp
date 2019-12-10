@@ -9,5 +9,5 @@
 		<link rel="stylesheet" href="css/slideOut.css">
 		<title>Flashcard Application</title>
   	</head>
-  <body>
+  <body class="container-img">
 	
