@@ -9,7 +9,7 @@
         <div class="col-sm-8 col-md-6 mt-5 mx-auto">
         <?php
             if (isset($_SESSION['signUpErrorMessage'])) {
-            echo '<p>' . $_SESSION['signUpErrorMessage'] . '</p>';
+            echo '<p class="text-danger">' . $_SESSION['signUpErrorMessage'] . '</p>';
             unset($_SESSION['signUpErrorMessage']);
             }
         ?>

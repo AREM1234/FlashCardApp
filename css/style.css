@@ -234,6 +234,14 @@ body {
     cursor: pointer;
 }
 
+.container-img {
+	background: url(../images/forest-background.png); 
+    background-position: center;  
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0; 
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 

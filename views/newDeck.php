@@ -22,7 +22,7 @@
         <div class="col-sm-8 col-md-6 mt-5 mx-auto">
             <?php
                 if (isset($_SESSION['editDeckErrorMessage'])) {
-                    echo '<p>' . $_SESSION['editDeckErrorMessage'] . '</p>';
+                    echo '<p class="text-danger">' . $_SESSION['editDeckErrorMessage'] . '</p>';
                     unset($_SESSION['editDeckErrorMessage']);
                 }
             ?>
@@ -74,10 +74,10 @@
                         <?php endif; ?>
 
                         <?php if(isset($deckID)): ?>
-                            <input type="submit" id="" class="secondary-btn" value="Submit Changes" />
-                            <a href="../controllers/createCards.php?DeckID=<?php echo $deckID; ?>" class="secondary-btn">Add Cards</a>
+                            <input type="submit" id="" class="action-btn" value="Submit Changes" />
+                            <a href="../controllers/createCards.php?DeckID=<?php echo $deckID; ?>" class="action-btn">Add Cards</a>
                         <?php else: ?>                
-                            <input type="submit" id="" class="secondary-btn" value="Add Cards" />
+                            <input type="submit" id="" class="action-btn" value="Add Cards" />
                         <?php endif; ?>
                         
                     </div>

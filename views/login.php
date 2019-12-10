@@ -9,12 +9,12 @@
         <div class="col-sm-8 col-md-6 mt-5 mx-auto">
         <?php
             if (isset($_SESSION['loginErrorMessage'])) {
-                echo '<p>' . $_SESSION['loginErrorMessage'] . '</p>';
+                echo '<p class="text-danger">' . $_SESSION['loginErrorMessage'] . '</p>';
                 unset($_SESSION['loginErrorMessage']);
             }
 
             if (isset($_SESSION['signupSuccess'])) {
-                echo '<p>' . $_SESSION['signupSuccess'] . '</p>';
+                echo '<p class="text-success">' . $_SESSION['signupSuccess'] . '</p>';
                 unset($_SESSION['signupSuccess']);
             }
         ?>
@@ -23,7 +23,7 @@
                     <div class="row">
                         <legend class="sr-only">Login to account</legend>
                         <div class="col-md-6 px-2">
-                            <label for="" class="input-label">Username or Email</label>
+                            <label for="" class="input-label">Email</label>
                             <input type="text" id="" name="email" class="input-field">
                         </div>
 
