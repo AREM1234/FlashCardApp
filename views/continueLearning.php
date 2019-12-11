@@ -5,6 +5,10 @@ include('heading.php');
 include('../models/DBConnect.php');
 include('../models/DBFunctions.php');
 
+if (!isset($_SESSION['signedInEmail'])){
+        header("Location: ../controllers/login.php");
+    }
+
 $categories = GetCategories();
 
 
