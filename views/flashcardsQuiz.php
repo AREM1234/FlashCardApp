@@ -4,6 +4,10 @@
     include('../models/DBConnect.php');
     include('../models/DBFunctions.php');
 
+    if (!isset($_SESSION['signedInEmail'])){
+        header("Location: ../controllers/login.php");
+    }
+
     if(!isset($_GET['DeckID'])){
         exit();
     }
