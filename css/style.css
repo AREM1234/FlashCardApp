@@ -6,6 +6,23 @@ body {
     max-height: 100%;
 }
 
+
+.add-to-collection {
+    color: rgb(105, 105, 105);
+    border: 1px solid rgb(196, 196, 196);;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.add-to-collection:hover {
+    text-decoration: none;
+    background-color: rgb(201, 201, 201);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(196, 196, 196);;
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .alfred-logo {
     width: 70px;
 }
@@ -87,6 +104,11 @@ body {
     background: rgb(100, 100, 100);
 }
 
+.deck-wrapper {    
+    background-color: rgb(223, 230, 228);
+    border-radius: 10px;
+}
+
 .deck-wrapper a {
     text-decoration: none;
     color: rgb(44, 44, 44);
@@ -97,9 +119,44 @@ body {
 }
 
 .deck-title {
-    background-color: burlywood;
+    background-color: rgb(179, 194, 189);
     text-align: center;
+    border-radius: 10px 10px 0 0;
 }
+
+
+.delete-from-collection {
+    color: rgb(105, 105, 105);
+    border: 1px solid rgb(196, 196, 196);;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.delete-from-collection:hover {
+    text-decoration: none;
+    background-color: rgb(165, 52, 0);
+    color: ivory;
+    border: 1px solid rgb(196, 196, 196);;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flip-content {
+    border: 2px solid grey;
+    border-radius: 25px;
+    padding: 100px 50px;
+    box-shadow: 5px 5px 5px grey;
+    display: block;
+    overflow-x: hidden;
+    transition: transform 0.5s;
+
+}
+.flip-content P {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2em;
+}
+
 .header-categories {
     height: 210px;
     background: url(../images/sunset-header.png);  
