@@ -37,7 +37,7 @@
                         <div class="col-md-6 px-2">
                             <label for="" class="input-label">Deck Name</label>
                             <?php if(isset($deckID)): ?>
-                                <input type="text" class="input-field" name="deck-name" value="<?php echo $deck['DeckName']; ?>" />
+                                <input type="text" class="input-field" name="deck-name" value="<?php echo $deck['DeckName']; ?>" maxlength="150"/>
                             <?php else: ?>
                                 <input type="text" class="input-field" name="deck-name" />
                             <?php endif;?>
@@ -59,9 +59,9 @@
                         <div class="col-12 px-2">
                             <label for="" class="input-label">Description</label>
                             <?php if(isset($deckID)): ?>
-                                <textarea type="text" class="textarea-field" name="description"><?php echo $deck['DeckDesc']; ?></textarea>
+                                <textarea type="text" class="textarea-field" name="description" maxlength="750"><?php echo $deck['DeckDesc']; ?></textarea>
                             <?php else: ?>
-                                <textarea type="text" class="textarea-field" name="description"></textarea>
+                                <textarea type="text" class="textarea-field" name="description" maxlength="750"></textarea>
                             <?php endif;?>
                         </div>
 

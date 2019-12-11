@@ -27,12 +27,12 @@
             <input type="hidden" name="deck-id" value="<?php echo $deckID; ?>">
             <div class="col-md-12 px-2">
             <label for="" class="input-label">Front of Card</label>
-            <textarea type="text" class="textarea-field" name="front-card"></textarea>
+            <textarea type="text" class="textarea-field" name="front-card" maxlength="750"></textarea>
             </div>
 
             <div class="col-md-12 px-2">
             <label for="" class="input-label">Back of Card</label>
-            <textarea type="text" class="textarea-field" name="back-card"></textarea>
+            <textarea type="text" class="textarea-field" name="back-card" maxlength="750"></textarea>
             </div>
 
             <input type="submit" id="" class="secondary-btn" value="Add Card">
