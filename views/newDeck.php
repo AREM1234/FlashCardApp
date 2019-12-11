@@ -77,7 +77,7 @@
                             <input type="submit" id="" class="action-btn" value="Submit Changes" />
                             <a href="../controllers/createCards.php?DeckID=<?php echo $deckID; ?>" class="action-btn">Add Cards</a>
                         <?php else: ?>                
-                            <input type="submit" id="" class="section-btn" value="Add Cards" />
+                            <input type="submit" id="" class="secondary-btn" value="Add Cards" />
                         <?php endif; ?>
                         
                     </div>
