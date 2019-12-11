@@ -4,6 +4,10 @@
 	include_once('../models/DBConnect.php');
 	include_once('../models/DBFunctions.php');
 
+	if (!isset($_SESSION['signedInEmail'])){
+        header("Location: login.php");
+    	}
+
 	if(isset($_GET['DeckID'])){
 		$deckID = $_GET['DeckID'];
 		include_once('../views/addCards.php');
