@@ -4,6 +4,10 @@
     include('../models/DBConnect.php');
     include('../models/DBFunctions.php');
 
+    if (!isset($_SESSION['signedInEmail'])){
+        header("Location: ../controllers/login.php");
+    }
+
     $decks = GetDecksByUser($_SESSION['signedInEmail']);
 ?>
 <div class="container-fluid" id="main-content">
