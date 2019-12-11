@@ -97,14 +97,14 @@
                     </div>
                 </div>
                 <?php if(!$check): ?>
-                    <div class="row btn-wrapper my-5">
+                    <div class="row btn-wrapper my-5 text-center">
                         <div class="col-6 px-2">
                             <a alt="Add deck to collection" class="add-to-collection" href="../controllers/SubscribeDeck?DeckID=<?php echo $deckID ?>">Add deck to your collection?</a>
                         </div>                     
                     </div>
                 <?php endif; ?>
                 <?php if($admin): ?>
-                    <div class="row btn-wrapper my-5">
+                    <div class="row btn-wrapper my-5 text-center">
                         <div class="col-6 px-2">
                             <a alt="Delete this deck" class="delete-from-collection" href="../controllers/deleteDeck?DeckID=<?php echo $deckID ?>">Delete Deck</a>
                         </div>                     
