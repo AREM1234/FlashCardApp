@@ -22,7 +22,7 @@ body {
     line-height: 70px;
     font-size: 2em;
     text-decoration: none;
-    color: rgb(255,255,255);
+    color: rgb(255,255,255) !important;
 }
 
 .action-btn:hover {
@@ -235,11 +235,12 @@ body {
 }
 
 .container-img {
-	background: url(../images/forest-background.png); 
+    background: url(../images/forest-background.png); 
     background-position: center;  
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0; 
+    height: 100vh;
 }
 
 /* Extra small devices (phones, 600px and down) */
