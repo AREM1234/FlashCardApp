@@ -23,7 +23,7 @@
                     <div class="row">
                         <legend class="sr-only">Login to account</legend>
                         <div class="col-md-6 px-2">
-                            <label for="" class="input-label">Email</label>
+                            <label for="" class="input-label">Username or Email</label>
                             <input type="text" id="" name="email" class="input-field">
                         </div>
 
