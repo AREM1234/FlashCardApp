@@ -14,7 +14,7 @@ function GetCategories(){
 
 	return $result;
 
-}
+} 
 
 function GetCategoryName($CategoryID){
 
@@ -57,7 +57,7 @@ function GetCategorysDecks($CategoryID){
                             LEFT JOIN userdecks ON decks.DeckID = userdecks.DeckFK
                     		INNER JOIN users ON userdecks.UserFK = users.UserID
 							WHERE decks.Public = true AND deckscategories.CategoryFK = :CategoryID AND userdecks.Creator = true
-							ORDER BY DeckName, users.UserName ");
+							ORDER BY DeckName, users.UserName");
 	$query->bindParam(":CategoryID", $CategoryID);
 	$query->execute();
 
@@ -122,15 +122,20 @@ function AddDeck($description, $deckName, $ifPublic, $categoryDeck){
 	$category->bindParam(":categoryfk", $categoryDeck);
 	$category->bindParam(":deckfk", $theID);
 	$category->execute();
-
+    
 	$userID = GetUserByEmail($_SESSION['signedInEmail']);
+    
+    $userKey = $db->prepare("SELECT UserID WHERE Email = :email OR UserName = :email");
+    $userKey->bindParam(":email", $userEmail);
+    $userKey->execute();
+    $result = $userKey->fetchAll();
+    
 	$user = $db->prepare("INSERT INTO userdecks (DeckFK, UserFK, Creator) VALUES (:deckfk, :userfk, true)");
 	$user->bindParam(":deckfk", $theID);
 	$user->bindParam(":userfk", $userID);
 	$user->execute();
 
 	return $theID;
-
 }
 
 function GetDecksByUser($Email){
@@ -142,7 +147,7 @@ function GetDecksByUser($Email){
 							INNER JOIN categories ON deckscategories.CategoryFK = categories.CategoryID
 							INNER JOIN userdecks ON decks.DeckID = userdecks.DeckFK
 							INNER JOIN users ON userdecks.UserFK = users.UserID
-							WHERE users.Email = :Email 
+							WHERE users.Email = :Email OR users.UserName = :Email
 							ORDER BY Creator DESC");
 	$query->bindParam(":Email", $Email);
 	$query->execute();
@@ -309,7 +314,7 @@ function GetUserByEmail($email){
 	global $db;
 
 	$query = $db->prepare("SELECT UserID FROM users					
-							 WHERE Email = :Email ");
+							 WHERE Email = :Email OR UserName = :Email");
 
 	$query->bindParam(":Email", $email);
 	$query->execute();
@@ -358,16 +363,21 @@ function signUp($email, $userName, $password) {
 }
 
 // returns true if there is already a record containing the entered email address
-function checkIfUserExists($email) {
+function checkIfUserExists($email, $username) {
 	global $db;
 	
-    $statement = $db->prepare('SELECT * FROM users WHERE Email = :email');
-    $statement->execute(array(':email' => $email));
-
-    if ($statement->rowCount() >= 1) {
-        return true;
+    $emailCheck = $db->prepare('SELECT * FROM users WHERE Email = :email');
+    $emailCheck->execute(array(':email' => $email));
+    
+    $userCheck = $db->prepare('SELECT * FROM users WHERE UserName = :username');
+    $userCheck->execute(array(':username' => $username));
+    
+    if ($emailCheck->rowCount() >= 1) {
+        return "email";
+    } elseif ($userCheck->rowcount() >= 1) {
+        return "username";
     } else {
-        return false;
+        return "";
     }
 }
 
@@ -426,7 +436,7 @@ function CheckRole($email){
 	global $db;
 
 	$query = $db->prepare("SELECT RoleFK FROM users					
-							 WHERE Email = :Email ");
+							 WHERE Email = :Email OR UserName = :Email");
 
 	$query->bindParam(":Email", $email);
 	$query->execute();
