@@ -18,8 +18,15 @@
             exit();
         }
 
-        if (checkIfUserExists($_POST['email']) == true) {
+        $checkUserExist = checkIfUserExists($_POST['email'], $_POST['userName']);
+        
+        if ($checkUserExist == "email") {
             $_SESSION['signUpErrorMessage'] = 'There is already a user registered with that email address.';
+            header('Location: ./signUp.php');
+            exit();
+        }
+        if ($checkUserExist == "username") {
+            $_SESSION['signUpErrorMessage'] = 'There is already a user registered with that Username.';
             header('Location: ./signUp.php');
             exit();
         }
