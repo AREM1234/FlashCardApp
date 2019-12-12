@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 07, 2019 at 04:16 AM
+-- Generation Time: Dec 12, 2019 at 01:35 PM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -36,22 +36,24 @@ CREATE TABLE IF NOT EXISTS `cards` (
   `Side2` varchar(750) NOT NULL,
   PRIMARY KEY (`CardID`),
   KEY `DeckFK` (`DeckFK`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cards`
 --
 
 INSERT INTO `cards` (`CardID`, `DeckFK`, `Side1`, `Side2`) VALUES
-(1, 1, 'YAY C%%%', '######'),
-(2, 2, '1', 'cdcdd'),
-(3, 2, '2', 'dcd'),
-(4, 2, '3', 'jnkjj'),
-(5, 2, '4', '12321'),
-(6, 2, '5', '233223'),
-(7, 2, '6', '3213131'),
-(8, 2, '7', '131313'),
-(9, 1, 'A card of awesomeness.', 'Deserves a better home than this.');
+(1, 1, 'C# is ', 'a general-purpose, multi-paradigm programming language encompassing strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.'),
+(2, 2, 'c++ was made by', 'Bjarne Stroustrup'),
+(3, 2, 'C++ is an extension of', 'C'),
+(4, 2, 'C++ file extensions', 'C,.cc,.cpp,.cxx,.c++,.h,.hh,.hpp,.hxx,.h++'),
+(5, 2, 'C++ was released in', '1985'),
+(6, 2, 'The latest release came out', '1 December 2017'),
+(9, 1, 'C# is a hybrid of', 'C++ & C'),
+(10, 2, 'Cards are cool.', 'Yes they are,'),
+(13, 17, 'adads', 'sadsad'),
+(14, 13, 'ARRRGGGHHHHH', 'RAAAAGGGEEEE'),
+(15, 13, 'ENKE SUCKS!!!!!', 'ARRRRGGGGHHHHHH');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `decks` (
   `DeckName` varchar(150) NOT NULL,
   `Public` tinyint(1) NOT NULL,
   PRIMARY KEY (`DeckID`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `decks`
@@ -97,8 +99,8 @@ CREATE TABLE IF NOT EXISTS `decks` (
 INSERT INTO `decks` (`DeckID`, `DeckDesc`, `DeckName`, `Public`) VALUES
 (1, 'A C# deck with great cards.', 'C# Deck1', 1),
 (2, 'A c++ deck made for those who love this language.', 'C++ IS AWESOME!!!!!!!!!', 0),
-(3, 'C# decks yay', 'C# asd', 1),
-(13, 'IM DBADfsddsffssfsfd', 'BAD DECK cc c c c', 1);
+(13, 'IM DBADfsddsffssfsfd', 'BAD DECK cc c c c', 1),
+(17, 'adsasdasddsa', 'dadsads', 0);
 
 -- --------------------------------------------------------
 
@@ -121,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `deckscategories` (
 INSERT INTO `deckscategories` (`CategoryFK`, `DeckFK`) VALUES
 (1, 1),
 (2, 2),
-(1, 3),
-(1, 13);
+(1, 13),
+(1, 17);
 
 -- --------------------------------------------------------
 
@@ -167,8 +169,8 @@ CREATE TABLE IF NOT EXISTS `userdecks` (
 INSERT INTO `userdecks` (`UserFK`, `DeckFK`, `Creator`) VALUES
 (21, 1, 1),
 (21, 2, 1),
-(22, 3, 1),
-(22, 13, 1);
+(22, 13, 1),
+(24, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -186,7 +188,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`UserID`),
   UNIQUE KEY `EMAILUNIQUE` (`Email`),
   KEY `ROLEFK` (`RoleFK`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
@@ -194,7 +196,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`UserID`, `RoleFK`, `Email`, `UserName`, `Password`) VALUES
 (21, 2, 'trimelijah@gmail.com', 'AREM', '$2y$10$6hXPvEhFo2eMRH9D/hKp9OE4VRoRhuHnlxRG/SlAdaosMW44fD/8.'),
-(22, 2, 'donad@gmail.com', 'Donad Dongle', '$2y$10$OedOivpxfYTVHvTsP6sNcu/OMjPQtCaf3Xohw4WGflBo.YpJlWKha');
+(22, 2, 'donad@gmail.com', 'Donad Dongle', '$2y$10$OedOivpxfYTVHvTsP6sNcu/OMjPQtCaf3Xohw4WGflBo.YpJlWKha'),
+(23, 1, 'admin@gmail.com', 'Admin', '$2y$10$Kn0PMuTIlyOd.6sK/3CX7.z.O8v6RxxQ8bWcmFoRHCuAza.8cTMn2'),
+(24, 2, 'enkeeg@alfredstate.edu', 'sadasas', '$2y$10$K0WsT45HmsH0JyMbDFTAhuaPoxgagFjRlEWp0yaEX1oBs.UPU06GC');
 
 --
 -- Constraints for dumped tables
